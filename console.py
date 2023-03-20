@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
                 pline = pline[2].strip()  # pline is now str
                 if pline:
                     # check for *args or **kwargs
-                    if pline[0] is '{' and pline[-1] is '}'\
+                    if pline[0] == '{' and pline[-1] == '}'\
                             and type(eval(pline)) is dict:
                         _args = pline
                     else:
@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
         value = y[key].__dict__
         for i in lis:
             args_name = i.split("=")
-            if (args_name[1][0] is "\""):
+            if (args_name[1][0] == "\""):
                 step = args_name[1].split("\"")
                 name = step[1].split("_")
                 name_2 = ""
@@ -140,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
                         name_2 = name_2+" "
                     else:
                         name_2 += a
-                value[args_name[0]]=name_2
+                value[args_name[0]] = name_2
             else:
                 value[args_name[0]] = HBNBCommand.types[args_name[0]](
                     args_name[1])
@@ -294,7 +294,7 @@ class HBNBCommand(cmd.Cmd):
                 args.append(v)
         else:  # isolate args
             args = args[2]
-            if args and args[0] is '\"':  # check for quoted arg
+            if args and args[0] == '\"':  # check for quoted arg
                 second_quote = args.find('\"', 1)
                 att_name = args[1:second_quote]
                 args = args[second_quote + 1:]
@@ -302,10 +302,10 @@ class HBNBCommand(cmd.Cmd):
             args = args.partition(' ')
 
             # if att_name was not quoted arg
-            if not att_name and args[0] is not ' ':
+            if not att_name and args[0] != ' ':
                 att_name = args[0]
             # check for quoted val arg
-            if args[2] and args[2][0] is '\"':
+            if args[2] and args[2][0] == '\"':
                 att_val = args[2][1:args[2].find('\"', 1)]
 
             # if att_val was not quoted arg
