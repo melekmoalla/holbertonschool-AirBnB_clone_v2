@@ -13,14 +13,23 @@ class FileStorage:
         if (obj is None):
             print
         else:
-            a = self.__objects
-            first_key = next(iter(a))
-            a.pop(first_key)
-            self.save()
+            for i in self.__objects:
+                if self.__objects[i] == obj:
+                    del self.__objects[i]
+                    self.save()
+                    break
+            
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        return (self.__objects)
+        if (cls is not None):
+            lis = {}
+            for i in self.__objects:
+                if (cls == type(self.__objects[i])):
+                    lis[i] = self.__objects[i]
+            return(lis)
+        else:
+            return (self.__objects)
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
