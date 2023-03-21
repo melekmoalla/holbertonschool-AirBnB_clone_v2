@@ -10,10 +10,13 @@ class FileStorage:
 
     def delete(self, obj=None):
         """Returns a dictionary of models currently in storage"""
-        a = self.__objects
-        first_key = next(iter(a))
-        a.pop(first_key)
-        self.save()
+        if (obj is None)/
+            print
+        else:
+            a = self.__objects
+            first_key = next(iter(a))
+            a.pop(first_key)
+            self.save()
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
