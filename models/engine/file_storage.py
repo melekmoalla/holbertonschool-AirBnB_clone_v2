@@ -9,6 +9,7 @@ class FileStorage:
     __objects = {}
 
     def delete(self, obj=None):
+        """Returns a dictionary of models currently in storage"""
         a = self.__objects
         first_key = next(iter(a))
         a.pop(first_key)
