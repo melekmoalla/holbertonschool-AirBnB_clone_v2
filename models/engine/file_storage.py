@@ -10,7 +10,7 @@ class FileStorage:
 
     def delete(self, obj=None):
         """Returns a dictionary of models currently in storage"""
-        if (obj is None)/
+        if (obj is None):
             print
         else:
             a = self.__objects
