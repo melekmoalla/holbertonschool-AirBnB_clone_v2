@@ -37,7 +37,7 @@ class DBStorage():
         """squery database session"""
         all_dict = {}
         for itr in classes:
-            if cls is None or cls == itr:
+            if cls is None :
                 objs = self.__session.query(classes[itr]).all()
                 for obj in objs:
                     key = obj.__class__.__name__ + '.' + obj.id
@@ -63,11 +63,8 @@ class DBStorage():
     def reload(self):
         """reload"""
         Base.metadata.create_all(self.__engine)
-        session_factory = sessionmaker(
+        session = sessionmaker(
             bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(session_factory)
+        Session = scoped_session(session)
         self.__session = Session()
 
-    def close(self):
-        """ calls close() on the class Session """
-        self.__session.close()
