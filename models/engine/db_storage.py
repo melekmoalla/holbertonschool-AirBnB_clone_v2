@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-"""new storage"""
 from os import getenv
 import models
 from models.amenity import Amenity
@@ -21,7 +20,6 @@ class DBStorage():
     __session = None
 
     def __init__(self):
-        """initialization"""
         HBNB_MYSQL_USER = getenv('HBNB_MYSQL_USER')
         HBNB_MYSQL_PWD = getenv('HBNB_MYSQL_PWD')
         HBNB_MYSQL_HOST = getenv('HBNB_MYSQL_HOST')
@@ -34,10 +32,9 @@ class DBStorage():
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """squery database session"""
         all_dict = {}
         for itr in classes:
-            if cls is None :
+            if cls is None:
                 objs = self.__session.query(classes[itr]).all()
                 for obj in objs:
                     key = obj.__class__.__name__ + '.' + obj.id
@@ -45,26 +42,19 @@ class DBStorage():
         return (all_dict)
 
     def new(self, obj):
-        """add new obj"""
         if obj is not None:
             self.__session.add(obj)
             self.save()
 
     def save(self):
-        """commit changes"""
         self.__session.commit()
 
     def delete(self, obj=None):
-        """delete obj if exists"""
-        if obj is not None:
-            del obj
-            self.save()
+        self.__session.delete(obj)
 
     def reload(self):
-        """reload"""
         Base.metadata.create_all(self.__engine)
         session = sessionmaker(
             bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(session)
         self.__session = Session()
-
