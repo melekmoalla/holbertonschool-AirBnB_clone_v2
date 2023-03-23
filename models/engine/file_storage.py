@@ -18,7 +18,6 @@ class FileStorage:
                     del self.__objects[i]
                     self.save()
                     break
-            
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
@@ -27,7 +26,7 @@ class FileStorage:
             for i in self.__objects:
                 if (cls == type(self.__objects[i])):
                     lis[i] = self.__objects[i]
-            return(lis)
+            return (lis)
         else:
             return (self.__objects)
 
