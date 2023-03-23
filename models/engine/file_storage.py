@@ -24,7 +24,8 @@ class FileStorage:
         if (cls is not None):
             lis = {}
             for i in self.__objects:
-                if (cls == type(self.__objects[i])):
+                m = type(self.__objects[i])
+                if (cls == m):
                     lis[i] = self.__objects[i]
             return (lis)
         else:
