@@ -36,8 +36,9 @@ def hello(text):
 
 
 @app.route("/python/<text>")
-def hello2(text="is cool"):
-    b = text
+def hello2(text):
+    if (text is None):
+        return "Python is cool"
     b = text.replace("_", " ")
     return f"Python {b}"
 
