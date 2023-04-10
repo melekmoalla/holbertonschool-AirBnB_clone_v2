@@ -13,6 +13,7 @@ of the text variable (replace underscore _ symbols with a space )
 The default value of text is “is cool”
 
 """
+
 from flask import Flask
 
 
@@ -47,7 +48,6 @@ def hello2(text='is cool'):
 def hello3(n):
     if type(n) is int:
         return f"{n} is a number"
-
 
 
 if __name__ == "__main__":
