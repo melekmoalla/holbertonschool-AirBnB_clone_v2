@@ -43,9 +43,9 @@ def hello2(text='is cool'):
     return f"Python {b}"
 
 
-@app.route("/number/<n>")
+@app.route("/number/<n>", strict_slashes=False)
 def hello3(n):
-    if type(n) is int:
+    if n.isnumeric():
         return f"{n} is a number"
 
 
