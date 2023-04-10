@@ -26,7 +26,7 @@ def hello1():
 
 @app.route("/c/<text>")
 def hello(text):
-    return f"C {text}"
+    return f"C {escape(text)}"
 
 
 if __name__ == "__main__":
