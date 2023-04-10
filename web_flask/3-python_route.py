@@ -35,10 +35,10 @@ def hello(text):
     return f"C {a}"
 
 
-@app.route("/python/<text>")
-def hello2(text):
-    if (text is None):
-        return "Python is cool"
+# @app.route('/python/', defaults={'text': 'is cool'}, strict_slashes=False)
+@app.route('/python/', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def hello2(text='is cool'):
     b = text.replace("_", " ")
     return f"Python {b}"
 
