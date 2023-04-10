@@ -11,7 +11,7 @@ Routes:
 
 """
 from flask import Flask
-from markupsafe import escape
+
 
 app = Flask(__name__)
 
@@ -28,7 +28,8 @@ def hello1():
 
 @app.route("/c/<text>")
 def hello(text):
-    return f"C {escape(text)}"
+    a = text.replace("_", " ")
+    return f"C {a}"
 
 
 if __name__ == "__main__":
