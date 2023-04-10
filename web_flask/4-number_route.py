@@ -47,6 +47,8 @@ def hello2(text='is cool'):
 def hello3(n):
     if n.isnumeric():
         return f"{n} is a number"
+    else:
+        return 404
 
 
 if __name__ == "__main__":
