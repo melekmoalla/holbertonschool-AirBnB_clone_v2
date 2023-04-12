@@ -22,7 +22,7 @@ def diplay():
 
 
 @app.teardown_appcontext
-def teardown_appcontext(ex):
+def teardown_appcontext():
     storage.close()
 
 

@@ -14,13 +14,12 @@ app = Flask(__name__)
 @app.route("/cities_by_states", strict_slashes=False)
 def cities():
 
-    states = storage.all(State).values()
+    states = storage.all(State)()
     states_sorted = []
     for state_id in sorted(states):
         state = states[state_id]
         states_sorted.append(state)
-    cities = storage.all(City).values()
-
+    cities = storage.all(City)()
     cytys = []
     for citie in sorted(cities):
         city = cities[citie]
