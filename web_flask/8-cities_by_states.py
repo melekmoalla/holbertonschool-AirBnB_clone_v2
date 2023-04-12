@@ -25,7 +25,7 @@ def cities():
         city = cities[citie]
         cytys.append(city)
 
-    return render_template('7-states_list.html', city=cytys, states=states_sorted)
+    return render_template('8-cities_by_states.html', city=cytys, states=states_sorted)
 
 
 @app.teardown_appcontext
