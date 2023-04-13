@@ -36,9 +36,7 @@ def satates_id(id=None):
     return render_template('9-states.html', city=cytys, states=states_sorted, id=id)
 
 
-@app.teardown_appcontext
-def teardown_appcontext(ex):
-    storage.close()
+
 
 
 if __name__ == "__main__":
