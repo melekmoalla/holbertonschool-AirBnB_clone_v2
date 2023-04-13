@@ -10,27 +10,21 @@ from models.state import State
 
 app = Flask(__name__)
 
+@app.route('/')
+def hello_hbnb():
+    return 'Hello HBNB!'
 
 @app.route("/cities_by_states", strict_slashes=False)
 def cities():
 
-    states = storage.all(State)
-    cities = storage.all(City)
-    states_sorted = []
-    for state_id in sorted(states):
-        state = states[state_id]
-        states_sorted.append(state)
-    cytys = []
-    for citie in sorted(cities):
-        city = cities[citie]
-        cytys.append(city)
-
-    return render_template('8-cities_by_states.html', city=cytys, states=states_sorted)
+    states = storage.all(State).values()
+    cities = storage.all(City).values()
 
 
-@app.teardown_appcontext
-def teardown_appcontext(ex):
-    storage.close()
+
+    return render_template('8-cities_by_states.html', city=cities, states=states)
+
+
 
 
 if __name__ == "__main__":
