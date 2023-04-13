@@ -20,9 +20,6 @@ def diplay():
     states = storage.all(State).values()
     return render_template('7-states_list.html', states=states)
 
-@app.teardown_appcontext
-def teardown_appcontext(ex):
-    storage.close()
 
 
 if __name__ == "__main__":
