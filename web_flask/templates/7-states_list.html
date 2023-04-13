@@ -6,17 +6,9 @@
     <BODY>
         <H1>States</H1>
         <UL>
-
-            <LI>421a55f4-7d82-47d9-b54c-a76916479545: <B>Alabama</B></LI>
-
-            <LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B></LI>
-
-            <LI>421a55f4-7d82-47d9-b54c-a76916479547: <B>California</B></LI>
-
-            <LI>421a55f4-7d82-47d9-b54c-a76916479548: <B>Colorado</B></LI>
-
-            <LI>421a55f4-7d82-47d9-b54c-a76916479549: <B>Florida</B></LI>
-
+            {% for state in states  %}
+                <li>{{state.id}}: <B>{{state.name}}</B></li>
+            {% endfor %}
         </UL>
     </BODY>
 </HTML>
