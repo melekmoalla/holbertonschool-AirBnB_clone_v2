@@ -9,20 +9,19 @@ from models.state import State
 
 app = Flask(__name__)
 
+@app.route('/')
+def hello_hbnb():
+    return 'Hello HBNB!'
+
+
 
 @app.route('/states_list', strict_slashes=False)
 def diplay():
     states = storage.all(State).values()
-    states_sorted = []
-    for state_id in sorted(states):
-        state = states[state_id]
-        states_sorted.append(state)
-
-    return render_template('7-states_list.html', states=states_sorted)
-
+    return render_template('7-states_list.html', states=states)
 
 @app.teardown_appcontext
-def teardown_appcontext():
+def teardown_appcontext(ex):
     storage.close()
 
 
