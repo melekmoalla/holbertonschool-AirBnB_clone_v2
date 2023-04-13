@@ -16,12 +16,12 @@ def hello_hbnb():
 
 @app.route("/states")
 def states(id=None):
-    states = storage.all(State)()
+    states = storage.all(State)
     states_sorted = []
     for state_id in sorted(states):
         state = states[state_id]
         states_sorted.append(state)
-    return render_template('7-states_list.html',  states=states_sorted, id=id)
+    return render_template('9-states.html',  states=states_sorted, id=id)
 
 
 @app.route("/states/<id>")
@@ -34,7 +34,7 @@ def satates_id(id=None):
     cytys = []
     for citie in sorted(cities):
         city = cities[citie]
-        if city.state.id == id:
+        if city.state_id == id:
             cytys.append(city)
     return render_template('9-states.html', city=cytys, states=states_sorted, id=id)
 

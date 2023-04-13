@@ -12,10 +12,10 @@
             {% endfor %}
         </UL>
         {% elif id!= None  %}
-            <H1>States: {{state.name}}</H1>
+            <H1>States: {{states.name}}</H1>
             <H3>Cities:</H3>
-            {% for state in city: %}
-                <LI>{{state.id}}: <B>{{state.name}}</B></LI>
+            {% for m in city: %}
+                <LI>{{m.id}}: <B>{{m.name}}</B></LI>
             {% endfor %}
 
         {% else %}
@@ -23,4 +23,3 @@
         {% endif %}
     </BODY>
 </HTML>
-
