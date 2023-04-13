@@ -10,6 +10,9 @@ from models.state import State
 
 app = Flask(__name__)
 
+@app.route('/')
+def hello_hbnb():
+    return 'Hello HBNB!'
 
 @app.route("/states")
 def states(id=None):
