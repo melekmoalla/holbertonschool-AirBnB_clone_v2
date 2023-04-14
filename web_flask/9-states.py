@@ -10,9 +10,11 @@ from models.state import State
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello_hbnb():
     return 'Hello HBNB!'
+
 
 @app.route("/states")
 def states(id=None):
@@ -21,7 +23,8 @@ def states(id=None):
     for state_id in sorted(states):
         state = states[state_id]
         states_sorted.append(state)
-    return render_template('9-states.html',  states=states_sorted, id=id)
+    return render_template('9-states.html',
+                           states=states_sorted, id=id)
 
 
 @app.route("/states/<id>")
@@ -36,10 +39,8 @@ def satates_id(id=None):
         city = cities[citie]
         if city.state_id == id:
             cytys.append(city)
-    return render_template('9-states.html', city=cytys, states=states_sorted, id=id)
-
-
-
+    return render_template('9-states.html',
+                           city=cytys, states=states_sorted, id=id)
 
 
 if __name__ == "__main__":
